@@ -1,39 +1,44 @@
 //1. Создать перечисление с видами пиццы (хотя бы 4 - 5 кейсов)
 
-enum PizzaType: String{
-    case pepperoni = "Pepperoni Pizza"
-    case cheese = "Cheese Pizza"
-    case veggie = "Veggie Pizza"
-    case bbqChicken = "BBQ Chicken Pizza"
-    case meatLovers = "Meat Lovers Pizza"
-    case margherita = "Margherita Pizza"
-    case buffalo = "Buffalo Pizza"
-    case hawaiian = "Hawaiian Pizza"
-    case supreme = "Supreme Pizza"
-    case theWorks = "The Works Pizza"
-    case newYorkStyle = "New York Style Pizza"
-    case chicagoDeepDish = "Chicago Deep Dish Pizza"
-    case greekStyle = "Greek Style Pizza"
-}
+
 
 //2. Создать структуру пиццы, она должна содержать стоимость, вид пиццы, толстое или тонкое тесто и добавки (например, дополнительно добавить пепперони, помидоры, сыр). Вид пиццы должен быть вложенным типом для структуры пиццы. Подсказка: добавки лучше также сделать перечислением.
-enum Additives: String{
-    case cheeseMozzarella = "Mozzarella Cheese"
-    case cheeseProvolone = "Provolone Cheese"
-    case cheeseCheddar = "Cheddar Cheese"
-    case cheeseParmesan = "Parmesan Cheese"
-    case cheeseGouda = "Gouda Cheese"
-    case tomatoes = "Tomatoes"
-    case pepperoni = "Pepperoni"
-    case salmon = "Salmon"
-}
+
 
 
 struct Pizza {
+    enum Additives{
+        case cheeseMozzarella
+        case cheeseProvolone
+        case cheeseCheddar
+        case cheeseParmesan
+        case cheeseGouda
+        case tomatoes
+        case pepperoni
+        case salmon
+    }
+
+    enum PizzaType{
+        case pepperoni
+        case cheese
+        case veggie
+        case bbqChicken
+        case meatLovers
+        case margherita
+        case buffalo
+        case hawaiian
+        case supreme
+        case theWorks
+        case newYorkStyle
+        case chicagoDeepDish
+        case greekStyle
+    }
+
+    
     var price: Double
     var type: PizzaType
     var isThickDough: Bool
-    let additives: Additives
+    var additives: Additives
 }
 
 
@@ -58,8 +63,8 @@ class Pizzeria{
 //5. Создать экземпляр класса пиццерии и добавить в него несколько пицц.
 var myPizzeria = Pizzeria(pizza: [])
 
-var pizzaHawaiian = Pizza(price: 399.99, type: .hawaiian, isThickDough: true, additives: .pepperoni)
-var pizzaPepperoni = Pizza(price: 500, type: .pepperoni, isThickDough: false, additives: .cheeseGouda)
+let pizzaHawaiian = Pizza(price: 399.99, type: .hawaiian, isThickDough: true, additives: .pepperoni)
+var pizzaPepperoni = Pizza(price: 500, type: .hawaiian, isThickDough: false, additives: .cheeseGouda)
 var pizzaCheese = Pizza(price: 250.50, type: .cheese, isThickDough: true, additives: .tomatoes)
 var pizzaChicagoDeepDish = Pizza(price: 400, type: .chicagoDeepDish, isThickDough: false, additives: .salmon)
 myPizzeria.addPizza(pizza: pizzaHawaiian)
